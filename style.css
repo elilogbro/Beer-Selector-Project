@@ -13,15 +13,7 @@ h1 {
     justify-content: center;
 }
 
-#low-abv:hover {
-    cursor: pointer;
-}
-
-#high-abv:hover {
-    cursor: pointer;
-}
-
-#extra-high-abv:hover {
+#beer-name {
     cursor: pointer;
 }
 
@@ -30,21 +22,19 @@ h1 {
     justify-content: center;
 }
 
-.low-abv:hover {
-    cursor: pointer;
-}
-
-.high-abv:hover {
-    cursor: pointer;
-}
-
-.extra-high-abv:hover {
+#dropdown {
     cursor: pointer;
 }
 
 #beer-details {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+}
+
+#detail-image {
+    max-height: 50%;
+    width: auto;
 }
 
 #rating-form {
