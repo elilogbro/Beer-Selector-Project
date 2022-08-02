@@ -1,0 +1,58 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: system-ui;
+}
+
+h1 {
+    text-align: center;
+}
+
+#abv-selection {
+    display: flex;
+    justify-content: center;
+}
+
+#low-abv:hover {
+    cursor: pointer;
+}
+
+#high-abv:hover {
+    cursor: pointer;
+}
+
+#extra-high-abv:hover {
+    cursor: pointer;
+}
+
+#all-beer {
+    display: flex;
+    justify-content: center;
+}
+
+.low-abv:hover {
+    cursor: pointer;
+}
+
+.high-abv:hover {
+    cursor: pointer;
+}
+
+.extra-high-abv:hover {
+    cursor: pointer;
+}
+
+#beer-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+#rating-form {
+    display: flex;
+    justify-content: center;
+}
+
+#smiley-rating {
+    display: flex;
+    justify-content: center;
+}
