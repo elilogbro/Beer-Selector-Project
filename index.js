@@ -38,7 +38,7 @@ function renderList(beers) {
 }
 
 //switch case for finding abv
-function abvRange(beerList) {
+function abvRange() {
     const abv = dropdown.value
     let filteredBeers
     switch(abv) {
@@ -83,4 +83,4 @@ function handleForm() {
 }
 
 //event listeners
-dropdown.addEventListener('change', () => abvRange(beerList))
+dropdown.addEventListener('change', abvRange)
