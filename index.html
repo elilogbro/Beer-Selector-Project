@@ -7,50 +7,48 @@
     </head>
     <body>
         <h1>Beer Selector</h1>
-        <img id="header-image" src="">
-        <div id="abv-selection">
-            <!-- ABV selection buttons here -->
-            <select id="dropdown">
-                <option value=""></option>
-                <option>4-6% ABV</option>
-                <option>6-10% ABV</option>
-                <option>10+% ABV</option>
-            </select>
+        <!-- left side -->
+            <div id="row-container">
+                <div id="abv-selection">
+                    <!-- ABV selection buttons here -->
+                    <select id="dropdown">
+                        <option value=""></option>
+                        <option>4-6% ABV</option>
+                        <option>6-10% ABV</option>
+                        <option>10+% ABV</option>
+                    </select>
+                    <ul id="beer-name"><!-- beer name list goes here --></ul>
+                </div>
+                <img id="detail-image" src="">
+                <!-- right side -->
+                <div id="beer-details">
+                    <!-- all beer details here -->
+                    <h2 id="detail-name">
+                        Beer Name
+                    </h2>
+                    <h3 id="detail-tagline">
+                        Tagline
+                    </h3>
+                    <p id="detail-description">
+                        Beer Description
+                    </p>
+                    <p id="detail-abv">
+                        ABV:
+                    </p>
+                    <p id="detail-ibu">
+                        IBU:
+                    </p>
+                    <p id="smiley-rating">
+                        <!-- smiley icons here -->
+                        <img>
+                    </p>
+                <form id="rating-form">
+                    <!-- rating form here -->
+                    <label for="rating">My Review: </label>
+                    <input id="rating" type="text" placeholder="on a scale of 1-5">
+                    <input type="submit"></button>
+                </form>
+            </div>
         </div>
-        <div id="all-beer">
-            <ul id="beer-name"><!-- beer name list goes here --></ul>
-        </div>
-        <nav id="beer-list">
-            <!-- beer images here -->
-        </nav>
-        <div id="beer-details">
-            <!-- all beer details here -->
-            <img id="detail-image" src=""> 
-            <h2 id="detail-name">
-                Beer Name
-            </h2>
-            <h3 id="detail-tagline">
-                Tagline
-            </h3>
-            <p id="detail-description">
-                Beer Description
-            </p>
-            <p id="detail-abv">
-                ABV: 
-            </p>
-            <p id="detail-ibu">
-                IBU: 
-            </p>
-            <p id="detail-rating">
-                Rating: 
-            </p>
-        </div>
-        <form id="rating-form">
-            <!-- rating form here -->
-            <label for="rating">My Review: </label>
-            <input id="rating" type="text" placeholder="on a scale of 1-5">
-            <input type="submit"></button>
-        </form>
     </body>
-
 </html>
