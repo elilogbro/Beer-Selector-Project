@@ -27,6 +27,7 @@ fetch(url)
         handleDropdown(beers)
         handleForm()
         handleTriedButton()
+        renderFirstBeer(beers)
         beers.forEach(beer => {
             beer.tried = false
         })
@@ -112,4 +113,9 @@ function handleTriedButton() {
 function handleDinnerButton(currentBeer) {
     currentBeer.foodPairing = true
     p.textContent = currentBeer.foodPairing ? (currentBeer.food_pairing).join('--') : ""
+}
+
+//render first beer
+function renderFirstBeer(beers) {
+    renderBeerDetails(beers[0])
 }
