@@ -27,14 +27,14 @@ h1 {
 }
 
 #beer-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    text-align: center;
+    padding-left: 500px;
+    padding-right: 500px;
 }
 
 #detail-image {
-    max-height: 50%;
-    width: auto;
+    max-height: auto;
+    width: 10%;
 }
 
 #rating-form {
