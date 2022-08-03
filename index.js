@@ -106,6 +106,7 @@ function handleTriedButton() {
     triedButton.addEventListener("click", () => {
         currentBeer.tried = !currentBeer.tried
         triedButton.textContent = currentBeer.tried ? " Tried " : " Not tried yet "
+        triedButton.classList.toggle("tried")
     })
 }
 
