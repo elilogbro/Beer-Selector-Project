@@ -3,7 +3,6 @@ const url = "https://api.punkapi.com/v2/beers"
 const ul = document.getElementById('beer-name')
 const dropdown = document.getElementById('dropdown')
 
-let beerList = [];
 const detailImage = document.querySelector('#detail-image')
 const detailName = document.querySelector('#detail-name')
 const detailTagline = document.querySelector('#detail-tagline')
@@ -12,6 +11,7 @@ const detailAbv = document.querySelector('#detail-abv')
 const detailIbu = document.querySelector('#detail-ibu')
 const ratingForm = document.querySelector('#rating-form')
 const detailRating = document.querySelector('#detail-rating')
+const triedButton = document.querySelector('#tried-untried')
 
 let currentBeer = {}
 let count = 0
@@ -21,8 +21,13 @@ fetch(url)
     .then(res => res.json())
     .then(beers => {
         renderList(beers)
-        // beerList = beers
+        handleDropdown(beers)
         handleForm()
+        handleTriedButton()
+        beers.forEach(beer => {
+            beer.tried = false
+            // beer.rating = 0
+        })
     })
 
 // render list     
@@ -37,8 +42,13 @@ function renderList(beers) {
     })
 }
 
+//handle dropdown selection
+function handleDropdown(beers) {
+    dropdown.addEventListener('change', () => abvRange(beers))
+}
+
 //switch case for finding abv
-function abvRange() {
+function abvRange(beers) {
     const abv = dropdown.value
     let filteredBeers
     switch(abv) {
@@ -51,6 +61,8 @@ function abvRange() {
         case '10+% ABV' :
             filteredBeers = beers.filter(beer => beer.abv > 10);
             break;
+        case 'All' :
+            filteredBeers = beers
     }
     ul.textContent = ''
     renderList(filteredBeers)
@@ -68,9 +80,10 @@ function renderBeerDetails(beer) {
     detailIbu.textContent = `IBU: ${beer.ibu}`
     currentBeer.rating = ""
     detailRating.textContent = `Rating: ${currentBeer.rating}`
+    triedButton.textContent = currentBeer.tried ? " Tried " : " Not tried yet "
 }
 
-//form functions
+//handle form submission
 function handleForm() {
     ratingForm.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -82,5 +95,10 @@ function handleForm() {
     })
 }
 
-//event listeners
-dropdown.addEventListener('change', abvRange)
+//handle tried button
+function handleTriedButton() {
+    triedButton.addEventListener("click", () => {
+        currentBeer.tried = !currentBeer.tried
+        triedButton.textContent = currentBeer.tried ? " Tried " : " Not tried yet "
+    })
+}
