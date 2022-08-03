@@ -1,8 +1,8 @@
 //global variables
 const url = "https://api.punkapi.com/v2/beers"
+
 const ul = document.getElementById('beer-name')
 const dropdown = document.getElementById('dropdown')
-
 const detailImage = document.querySelector('#detail-image')
 const detailName = document.querySelector('#detail-name')
 const detailTagline = document.querySelector('#detail-tagline')
@@ -12,6 +12,9 @@ const detailIbu = document.querySelector('#detail-ibu')
 const ratingForm = document.querySelector('#rating-form')
 const detailRating = document.querySelector('#detail-rating')
 const triedButton = document.querySelector('#tried-untried')
+const dinnerButton = document.querySelector('#dinner-button')
+const foodPairingDiv = document.querySelector('#food-pairing-div')
+const p = document.getElementById('food-pairing')
 
 let currentBeer = {}
 let count = 0
@@ -26,7 +29,6 @@ fetch(url)
         handleTriedButton()
         beers.forEach(beer => {
             beer.tried = false
-            // beer.rating = 0
         })
     })
 
@@ -81,6 +83,9 @@ function renderBeerDetails(beer) {
     currentBeer.rating = ""
     detailRating.textContent = `Rating: ${currentBeer.rating}`
     triedButton.textContent = currentBeer.tried ? " Tried " : " Not tried yet "
+    currentBeer.foodPairing = false;
+    p.textContent = currentBeer.foodPairing ? (currentBeer.food_pairing).join('--') : ""
+    dinnerButton.addEventListener('click', () => handleDinnerButton(currentBeer))
 }
 
 //handle form submission
@@ -101,4 +106,10 @@ function handleTriedButton() {
         currentBeer.tried = !currentBeer.tried
         triedButton.textContent = currentBeer.tried ? " Tried " : " Not tried yet "
     })
+}
+
+//handle dinner function
+function handleDinnerButton(currentBeer) {
+    currentBeer.foodPairing = true
+    p.textContent = currentBeer.foodPairing ? (currentBeer.food_pairing).join('--') : ""
 }

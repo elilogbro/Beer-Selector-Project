@@ -7,8 +7,8 @@
     </head>
     <body>
         <h1>Beer Selector</h1>
-        <!-- left side -->
             <div id="row-container">
+                <!-- left side -->
                 <div id="abv-selection">
                     <!-- ABV selection buttons here -->
                     <select id="dropdown">
@@ -39,7 +39,6 @@
                     <p id="detail-ibu">
                         IBU:
                     </p>
-                    <button id="tried-untried"> Not tried yet </button>
                     <p id="detail-rating">
                         Rating:
                     </p>
@@ -47,8 +46,13 @@
                     <!-- rating form here -->
                     <label for="rating">My Review: </label>
                     <input id="rating" type="text" placeholder="on a scale of 1-5">
-                    <input type="submit"></button>
+                    <input type="submit">
                 </form>
+                <button id="tried-untried"> Not tried yet </button>
+                <button id="dinner-button"> What's for dinner? </button>
+                <div id="food-pairing-div">
+                    <p id="food-pairing"></p>
+                </div>
             </div>
         </div>
     </body>
