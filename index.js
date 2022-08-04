@@ -17,7 +17,6 @@ const foodPairingDiv = document.querySelector('#food-pairing-div')
 const p = document.getElementById('food-pairing')
 
 let currentBeer = {}
-let count = 0
 
 //fetch
 fetch(url)
@@ -27,10 +26,12 @@ fetch(url)
         handleDropdown(beers)
         handleForm()
         handleTriedButton()
-        renderFirstBeer(beers)
         beers.forEach(beer => {
             beer.tried = false
+            beer.rating = ""
+            beer.count = 0
         })
+        renderFirstBeer(beers)
     })
 
 // render list     
@@ -74,14 +75,12 @@ function abvRange(beers) {
 //render beer details when clicked
 function renderBeerDetails(beer) {
     currentBeer = beer
-    count = 0
     detailName.textContent = beer.name
     detailImage.src = beer.image_url
     detailTagline.textContent = beer.tagline
     detailDescription.textContent = beer.description
     detailAbv.textContent = `ABV: ${beer.abv}`
     detailIbu.textContent = `IBU: ${beer.ibu}`
-    currentBeer.rating = ""
     detailRating.textContent = `Rating: ${currentBeer.rating}`
     triedButton.textContent = currentBeer.tried ? " Tried " : " Not tried yet "
     currentBeer.foodPairing = false;
@@ -93,10 +92,10 @@ function renderBeerDetails(beer) {
 function handleForm() {
     ratingForm.addEventListener('submit', (e) => {
         e.preventDefault()
-        count++
-        currentBeer.rating = +e.target[id="rating"].value + +currentBeer.rating
-        let averageRating = (currentBeer.rating) / count
-        detailRating.textContent = `Rating: ${averageRating}`
+        currentBeer.count++
+        let currentSum = +e.target[id="rating"].value + (+currentBeer.rating * (currentBeer.count - 1))
+        currentBeer.rating = (currentSum) / currentBeer.count
+        detailRating.textContent = `Rating: ${currentBeer.rating}`
         ratingForm.reset() 
     })
 }
